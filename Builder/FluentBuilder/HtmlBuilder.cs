@@ -1,4 +1,4 @@
-﻿namespace Builder.Builder
+﻿namespace Builder.FluentBuilder
 {
     public class HtmlBuilder
     {

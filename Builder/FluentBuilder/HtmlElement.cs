@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Builder.Builder
+namespace Builder.FluentBuilder
 {
     public class HtmlElement
     {

@@ -1,5 +1,5 @@
 ﻿using System;
-using Builder.Builder;
+using Builder.FluentBuilder;
 using Builder.FluentGenericBuilder;
 
 namespace Builder
