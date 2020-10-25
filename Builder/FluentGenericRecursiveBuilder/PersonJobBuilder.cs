@@ -1,4 +1,4 @@
-﻿namespace Builder.FluentGenericBuilder
+﻿namespace Builder.FluentGenericRecursiveBuilder
 {
     public class PersonJobBuilder<SELF> : PersonInfoBuilder<PersonJobBuilder<SELF>> where SELF : PersonJobBuilder<SELF>
     {
