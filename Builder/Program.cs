@@ -4,6 +4,7 @@ using Builder.FacetedBuilder;
 using Builder.FluentBuilder;
 using Builder.FluentGenericRecursiveBuilder;
 using Builder.FunctionalBuilder;
+using Factories.AbstractFactory;
 using Factories.AsynchronousFactoryMethod;
 using Factories.FactoryMethod;
 
@@ -51,11 +52,17 @@ namespace Builder
             // TODO:Factories
 
             // Factory Method
-            var point = Point.NewPolarPoint(1.0, Math.PI / 2);
+            var point = Point.Factory.NewPolarPoint(1.0, Math.PI / 2);
+            var origin = Point.Origin;
             // Console.WriteLine(point);
             
             // Asynchronous Factory Method
             Foo x = await Foo.CreateAsync();
+            
+            // Abstract Factory
+            var machine = new HotDrinkMachine();
+            var drink = machine.MakeDrink(HotDrinkMachine.AvailableDrink.Tea, 100);
+            drink.Consume();
             
             Console.ReadKey();
         }
