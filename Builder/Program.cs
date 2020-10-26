@@ -60,8 +60,11 @@ namespace Builder
             Foo x = await Foo.CreateAsync();
             
             // Abstract Factory
+            // var machine = new HotDrinkMachine();
+            // var drink = machine.MakeDrink(HotDrinkMachine.AvailableDrink.Tea, 100);
+            // drink.Consume();
             var machine = new HotDrinkMachine();
-            var drink = machine.MakeDrink(HotDrinkMachine.AvailableDrink.Tea, 100);
+            var drink = machine.MakeDrink();
             drink.Consume();
             
             Console.ReadKey();
