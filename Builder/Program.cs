@@ -3,6 +3,7 @@ using Builder.FacetedBuilder;
 using Builder.FluentBuilder;
 using Builder.FluentGenericRecursiveBuilder;
 using Builder.FunctionalBuilder;
+using Factories.FactoryMethod;
 
 namespace Builder
 {
@@ -18,7 +19,7 @@ namespace Builder
                 .AddChild("li", "from");
 
             htmlBuilder.AddChild("li", "me");
-            Console.WriteLine(htmlBuilder.ToString());
+            // Console.WriteLine(htmlBuilder.ToString());
 
 
             // Fluent Generic Recursive Builder
@@ -26,7 +27,7 @@ namespace Builder
                 .Called("Moamer")
                 .WorksAsA("Programmer")
                 .Build();
-            Console.WriteLine(me);
+            // Console.WriteLine(me);
 
             // Functional Builder (mostly for F sharp where object oriented approaches are not particularly)
             var pbFunc = new PersonBuilderFunc();
@@ -43,7 +44,13 @@ namespace Builder
                 .Works.At("DieWerber")
                     .AsA("Engineer")
                     .Earning(12000);
-            Console.WriteLine(personFace);
+            // Console.WriteLine(personFace);
+            
+            // TODO:Factories
+
+            // Factory Method
+            var point = Point.NewPolarPoint(1.0, Math.PI / 2);
+            Console.WriteLine(point);
             
             Console.ReadKey();
         }
