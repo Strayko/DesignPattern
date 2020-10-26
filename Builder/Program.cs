@@ -1,15 +1,17 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Builder.FacetedBuilder;
 using Builder.FluentBuilder;
 using Builder.FluentGenericRecursiveBuilder;
 using Builder.FunctionalBuilder;
+using Factories.AsynchronousFactoryMethod;
 using Factories.FactoryMethod;
 
 namespace Builder
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             // TODO:Builder
 
@@ -50,7 +52,10 @@ namespace Builder
 
             // Factory Method
             var point = Point.NewPolarPoint(1.0, Math.PI / 2);
-            Console.WriteLine(point);
+            // Console.WriteLine(point);
+            
+            // Asynchronous Factory Method
+            Foo x = await Foo.CreateAsync();
             
             Console.ReadKey();
         }
