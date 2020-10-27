@@ -7,6 +7,7 @@ using Builder.FunctionalBuilder;
 using Factories.AbstractFactory;
 using Factories.AsynchronousFactoryMethod;
 using Factories.FactoryMethod;
+using Prototype.CopyThroughSerializationAndXml;
 
 namespace Builder
 {
@@ -63,9 +64,20 @@ namespace Builder
             // var machine = new HotDrinkMachine();
             // var drink = machine.MakeDrink(HotDrinkMachine.AvailableDrink.Tea, 100);
             // drink.Consume();
+            
+            // Use reflection
             var machine = new HotDrinkMachine();
-            var drink = machine.MakeDrink();
-            drink.Consume();
+            // var drink = machine.MakeDrink();
+            // drink.Consume();
+            
+            // TODO:Prototype
+            
+            // Copy Through Serialization
+            var john = new PersonProto(new []{"John", "Smith"}, new Address("Bulevar Road", 1223));
+            var jane = john.DeepCopy();
+            jane.Address.HouseNumber = 3221;
+            // Console.WriteLine(john);
+            // Console.WriteLine(jane);
             
             Console.ReadKey();
         }

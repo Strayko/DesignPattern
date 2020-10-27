@@ -7,6 +7,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Factories\Factories.csproj" />
+      <ProjectReference Include="..\Prototype\Prototype.csproj" />
     </ItemGroup>
 
 </Project>
