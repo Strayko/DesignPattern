@@ -8,6 +8,8 @@ using Factories.AbstractFactory;
 using Factories.AsynchronousFactoryMethod;
 using Factories.FactoryMethod;
 using Prototype.CopyThroughSerializationAndXml;
+using Singleton.Monostate;
+using Singleton.SingletonImplementation;
 
 namespace Builder
 {
@@ -79,6 +81,16 @@ namespace Builder
             // Console.WriteLine(john);
             // Console.WriteLine(jane);
             
+            // TODO:Singleton
+
+            // Monostate
+            var ceo = new CEO();
+            ceo.Name = "Adam Smith";
+            ceo.Age = 55;
+            
+            var ceo2 = new CEO();
+            Console.WriteLine(ceo2);
+
             Console.ReadKey();
         }
     }

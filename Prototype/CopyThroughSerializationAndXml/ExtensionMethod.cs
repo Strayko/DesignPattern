@@ -39,7 +39,7 @@ namespace Prototype.CopyThroughSerializationAndXml
             // class with an expandable capacity initialized to zero.
             using (var ms = new MemoryStream())
             {
-                // Serializes and deserializes objects into and from XML documents.đ
+                // Serializes and deserializes objects into and from XML documents
                 // The XmlSerializer enables you to control how objects are encoded into XML.
                 var s = new XmlSerializer(typeof(T));
                 
