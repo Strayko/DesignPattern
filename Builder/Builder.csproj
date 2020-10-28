@@ -6,6 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Adapter\Adapter.csproj" />
       <ProjectReference Include="..\Factories\Factories.csproj" />
       <ProjectReference Include="..\Prototype\Prototype.csproj" />
       <ProjectReference Include="..\Singleton\Singleton.csproj" />
