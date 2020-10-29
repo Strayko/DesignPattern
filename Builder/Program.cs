@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Adapter.AdapterCaching;
+using Adapter.AdapterInDependencyInjection;
 using Adapter.GenericValueAdapter;
+using Autofac;
+using Autofac.Features.Metadata;
 using Builder.FacetedBuilder;
 using Builder.FluentBuilder;
 using Builder.FluentGenericRecursiveBuilder;
@@ -103,10 +106,31 @@ namespace Builder
             var v = new Vector2i(1,2);
             v[0] = 0;
             
-            var vv = new Vector2i(3,2);
-            var result = v + vv;
-            Vector3f u = Vector3f.Create(3.5f, 2.2f, 1);
+            // var vv = new Vector2i(3,2);
+            // var result = v + vv;
+            // Vector3f u = Vector3f.Create(3.5f, 2.2f, 1);
             
+            // Adapter In Dependency Injection
+            var b = new ContainerBuilder();
+            b.RegisterType<SaveCommand>().As<ICommand>()
+                .WithMetadata("Name", "Save");
+            b.RegisterType<OpenCommand>().As<ICommand>()
+                .WithMetadata("Name", "Open");
+            // b.RegisterAdapter<ICommand, Button>(cmd => new Button(cmd));
+            b.RegisterAdapter<Meta<ICommand>, Button>(cmd =>
+                new Button(cmd.Value, (string) cmd.Metadata["Name"]));
+            b.RegisterType<Editor>();
+
+            using (var c = b.Build())
+            {
+                var editor = c.Resolve<Editor>();
+                // editor.ClickAll();
+                foreach (var btn in editor.Buttons)
+                {
+                    btn.PrintMe();
+                }
+            }
+
 
 
             Console.ReadKey();
