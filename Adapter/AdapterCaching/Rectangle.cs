@@ -1,4 +1,4 @@
-﻿namespace Adapter.Implementation
+﻿namespace Adapter.AdapterCaching
 {
     public class Rectangle : VectorObject
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace Adapter.Implementation
+namespace Adapter.AdapterCaching
 {
     public class VectorObject : Collection<Line>
     {

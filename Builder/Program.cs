@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Adapter.AdapterCaching;
+using Adapter.GenericValueAdapter;
 using Builder.FacetedBuilder;
 using Builder.FluentBuilder;
 using Builder.FluentGenericRecursiveBuilder;
@@ -9,12 +11,11 @@ using Factories.AsynchronousFactoryMethod;
 using Factories.FactoryMethod;
 using Prototype.CopyThroughSerializationAndXml;
 using Singleton.Monostate;
-using Singleton.SingletonImplementation;
 
 namespace Builder
 {
     class Program
-    {
+    { 
         static async Task Main(string[] args)
         {
             // TODO:Builder
@@ -89,9 +90,28 @@ namespace Builder
             ceo.Age = 55;
             
             var ceo2 = new CEO();
-            Console.WriteLine(ceo2);
+            // Console.WriteLine(ceo2);
+            
+            // TODO:Adapter
+            
+            // Adapter Caching
+            var point2 = new PointAdap(3,4);
+            // point2.Draw();
+            // point2.Draw();
+            
+            // Generic Value Adapter
+            var v = new Vector2i(1,2);
+            v[0] = 0;
+            
+            var vv = new Vector2i(3,2);
+            var result = v + vv;
+            Vector3f u = Vector3f.Create(3.5f, 2.2f, 1);
+            
+
 
             Console.ReadKey();
         }
+
+        
     }
 }
