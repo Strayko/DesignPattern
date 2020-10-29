@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Adapter.AdapterCaching;
+using Adapter.AdapterImpementation;
 using Adapter.AdapterInDependencyInjection;
 using Adapter.GenericValueAdapter;
 using Autofac;
@@ -121,15 +122,20 @@ namespace Builder
                 new Button(cmd.Value, (string) cmd.Metadata["Name"]));
             b.RegisterType<Editor>();
 
-            using (var c = b.Build())
-            {
-                var editor = c.Resolve<Editor>();
-                // editor.ClickAll();
-                foreach (var btn in editor.Buttons)
-                {
-                    btn.PrintMe();
-                }
-            }
+            // using (var c = b.Build())
+            // {
+            //     var editor = c.Resolve<Editor>();
+            //     // editor.ClickAll();
+            //     foreach (var btn in editor.Buttons)
+            //     {
+            //         btn.PrintMe();
+            //     }
+            // }
+            
+            // Adapter Impementation
+            Adaptee adaptee = new Adaptee();
+            ITarget target = new Adapter3(adaptee);
+            // Console.WriteLine(target.GetRequest());
 
 
 
