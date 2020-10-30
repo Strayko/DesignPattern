@@ -6,6 +6,7 @@ using Adapter.AdapterInDependencyInjection;
 using Adapter.GenericValueAdapter;
 using Autofac;
 using Autofac.Features.Metadata;
+using Bridge.Implementation;
 using Builder.FacetedBuilder;
 using Builder.FluentBuilder;
 using Builder.FluentGenericRecursiveBuilder;
@@ -136,6 +137,32 @@ namespace Builder
             Adaptee adaptee = new Adaptee();
             ITarget target = new Adapter3(adaptee);
             // Console.WriteLine(target.GetRequest());
+            
+            // TODO:Bridge
+            
+            // Implementation
+            // Example 1
+            var renderer = new VectorRenderer();
+            var circle = new Circle(renderer, 5);
+            // circle.Draw();
+            // circle.Resize(2);
+            // circle.Draw();
+            
+            // Example 2 (with Container Builder)
+            var cb = new ContainerBuilder();
+            cb.RegisterType<VectorRenderer>().As<IRenderer>()
+                .SingleInstance();
+            cb.Register((c, p) =>
+                new Circle(c.Resolve<IRenderer>(),
+                    p.Positional<float>(0)));
+            // using (var c = cb.Build())
+            // {
+            //     var circle5 = c.Resolve<Circle>(new PositionalParameter(0, 5.0f));
+            //     circle5.Draw();
+            //     circle5.Resize(2.0f);
+            //     circle5.Draw();
+            // }
+            
 
 
 

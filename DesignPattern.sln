@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Singleton", "Singleton\Sing
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapter", "Adapter\Adapter.csproj", "{1C616EED-5A39-48B0-8C7A-CBF565F96C1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bridge", "Bridge\Bridge.csproj", "{0A52AD80-5460-4659-B819-042EA96C9C6C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{1C616EED-5A39-48B0-8C7A-CBF565F96C1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C616EED-5A39-48B0-8C7A-CBF565F96C1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C616EED-5A39-48B0-8C7A-CBF565F96C1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A52AD80-5460-4659-B819-042EA96C9C6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A52AD80-5460-4659-B819-042EA96C9C6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A52AD80-5460-4659-B819-042EA96C9C6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A52AD80-5460-4659-B819-042EA96C9C6C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
