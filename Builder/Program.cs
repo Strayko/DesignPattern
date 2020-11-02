@@ -1,31 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Adapter.AdapterCaching;
-using Adapter.AdapterImpementation;
-using Adapter.AdapterInDependencyInjection;
-using Adapter.GenericValueAdapter;
-using Autofac;
-using Autofac.Features.Metadata;
-using Bridge.Implementation;
-using Builder.FacetedBuilder;
-using Builder.FluentBuilder;
-using Builder.FluentGenericRecursiveBuilder;
-using Builder.FunctionalBuilder;
-using Composite.Example;
-using Composite.Implementation;
-using Composite.NeuralNetworks;
-using Factories.AbstractFactory;
-using Factories.AsynchronousFactoryMethod;
-using Factories.FactoryMethod;
-using Prototype.CopyThroughSerializationAndXml;
-using Singleton.Monostate;
-using Circle = Bridge.Implementation.Circle;
+using Decorator.Implementation;
 
 namespace Builder
 {
     class Program
     { 
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
             // TODO:Builder
 
@@ -222,7 +203,22 @@ namespace Builder
             // client.ClientCode2(three, leaf);
             
             // TODO:Decorator
-
+            
+            // Implementation
+            Client client = new Client();
+            var simple = new ConcreteComponent();
+            Console.WriteLine("Client: I get simple component");
+            client.ClientCode(simple);
+            Console.WriteLine();
+            
+            // ...as well as decorated ones.
+            //
+            // Note how decorators can wrap not only simple components but the
+            // other decorators as well.
+            ConcreteDecoratorA decorator1 = new ConcreteDecoratorA(simple);
+            ConcreteDecoratorB decorator2 = new ConcreteDecoratorB(decorator1);
+            Console.WriteLine("Client: Now I've got a decorated component");
+            client.ClientCode(decorator2);
 
             Console.ReadKey();
         }
