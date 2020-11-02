@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Threading.Tasks;
-using Decorator.Implementation;
+using Decorator.AdapterDecorator;
 
 namespace Builder
 {
@@ -205,20 +204,26 @@ namespace Builder
             // TODO:Decorator
             
             // Implementation
-            Client client = new Client();
-            var simple = new ConcreteComponent();
-            Console.WriteLine("Client: I get simple component");
-            client.ClientCode(simple);
-            Console.WriteLine();
+            // Client client = new Client();
+            // var simple = new ConcreteComponent();
+            // Console.WriteLine("Client: I get simple component");
+            // client.ClientCode(simple);
+            // Console.WriteLine();
             
             // ...as well as decorated ones.
             //
             // Note how decorators can wrap not only simple components but the
             // other decorators as well.
-            ConcreteDecoratorA decorator1 = new ConcreteDecoratorA(simple);
-            ConcreteDecoratorB decorator2 = new ConcreteDecoratorB(decorator1);
-            Console.WriteLine("Client: Now I've got a decorated component");
-            client.ClientCode(decorator2);
+            // ConcreteDecoratorA decorator1 = new ConcreteDecoratorA(simple);
+            // ConcreteDecoratorB decorator2 = new ConcreteDecoratorB(decorator1);
+            // Console.WriteLine("Client: Now I've got a decorated component");
+            // client.ClientCode(decorator2);
+            
+            // Adapter Decorator
+
+            // MyStringBuilder s = "hello ";
+            // s += "world";
+            // Console.WriteLine(s);
 
             Console.ReadKey();
         }
