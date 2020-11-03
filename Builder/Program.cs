@@ -1,5 +1,5 @@
 ﻿using System;
-using Decorator.AdapterDecorator;
+using Decorator.MultipleInheritanceWithDefaultInterfaceMember;
 
 namespace Builder
 {
@@ -224,6 +224,24 @@ namespace Builder
             // MyStringBuilder s = "hello ";
             // s += "world";
             // Console.WriteLine(s);
+
+            // Multiple Inheritance With Interface
+            
+            // var d = new Dragon();
+            // d.Weight = 22;
+            // d.Fly();
+            // d.Crawl();
+            
+            // Multiple Inheritance with Default Interface Members
+
+            // Dragon d = new Dragon {Age = 5};
+            //
+            // if (d is IBird bird)
+            //     bird.Fly();
+            // if (d is ILizard lizard)
+            //     lizard.Crawl();
+
+
 
             Console.ReadKey();
         }
