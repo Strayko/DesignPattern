@@ -1,6 +1,6 @@
 ﻿using System;
-using Decorator.DynamicDecoratorComposition;
-using Decorator.MultipleInheritanceWithDefaultInterfaceMember;
+using Autofac;
+using Decorator.DecoratorInDependencyInjection;
 
 namespace Builder
 {
@@ -253,7 +253,19 @@ namespace Builder
             // var redHalfTransparentSquare = new TransparentShape(redSquare, 0.5f);
             // Console.WriteLine(redHalfTransparentSquare.AsString());
 
+            // Decorator In Dependency Injection
+            
+            var b = new ContainerBuilder();
+            b.RegisterType<ReportingService>().Named<IReportingService>("reporting");
+            b.RegisterDecorator<IReportingService>(
+                (context, service) => new ReportingServiceWithLogging(service), "reporting"
+            );
 
+            using (var c = b.Build())
+            {
+                var r = c.Resolve<IReportingService>();
+                r.Report();
+            }
 
             Console.ReadKey();
         }
