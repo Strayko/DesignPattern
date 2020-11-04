@@ -1,6 +1,5 @@
 ﻿using System;
-using Autofac;
-using Decorator.DecoratorInDependencyInjection;
+using Facade.Implementation;
 
 namespace Builder
 {
@@ -255,17 +254,26 @@ namespace Builder
 
             // Decorator In Dependency Injection
             
-            var b = new ContainerBuilder();
-            b.RegisterType<ReportingService>().Named<IReportingService>("reporting");
-            b.RegisterDecorator<IReportingService>(
-                (context, service) => new ReportingServiceWithLogging(service), "reporting"
-            );
-
-            using (var c = b.Build())
-            {
-                var r = c.Resolve<IReportingService>();
-                r.Report();
-            }
+            // var b = new ContainerBuilder();
+            // b.RegisterType<ReportingService>().Named<IReportingService>("reporting");
+            // b.RegisterDecorator<IReportingService>(
+            //     (context, service) => new ReportingServiceWithLogging(service), "reporting"
+            // );
+            //
+            // using (var c = b.Build())
+            // {
+            //     var r = c.Resolve<IReportingService>();
+            //     r.Report();
+            // }
+            
+            // TODO:Facade
+            
+            // Implementation
+            
+            Subsystem1 subsystem1 = new Subsystem1();
+            Subsystem2 subsystem2 = new Subsystem2();
+            Facade.Implementation.Facade facade = new Facade.Implementation.Facade(subsystem1, subsystem2);
+            Client.ClientCode(facade);
 
             Console.ReadKey();
         }
