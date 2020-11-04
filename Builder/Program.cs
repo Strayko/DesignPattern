@@ -1,4 +1,5 @@
 ﻿using System;
+using Decorator.DynamicDecoratorComposition;
 using Decorator.MultipleInheritanceWithDefaultInterfaceMember;
 
 namespace Builder
@@ -240,6 +241,17 @@ namespace Builder
             //     bird.Fly();
             // if (d is ILizard lizard)
             //     lizard.Crawl();
+            
+            // Dynamic Decorator Composition
+
+            // var square = new Square(1.23f);
+            // Console.WriteLine(square.AsString());
+            //
+            // var redSquare = new ColoredShape(square, "red");
+            // Console.WriteLine(redSquare.AsString());
+            //
+            // var redHalfTransparentSquare = new TransparentShape(redSquare, 0.5f);
+            // Console.WriteLine(redHalfTransparentSquare.AsString());
 
 
 
