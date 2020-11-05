@@ -1,5 +1,5 @@
 ﻿using System;
-using Facade.Implementation;
+using Flyweight.TextFormatting;
 
 namespace Builder
 {
@@ -270,10 +270,29 @@ namespace Builder
             
             // Implementation
             
-            Subsystem1 subsystem1 = new Subsystem1();
-            Subsystem2 subsystem2 = new Subsystem2();
-            Facade.Implementation.Facade facade = new Facade.Implementation.Facade(subsystem1, subsystem2);
-            Client.ClientCode(facade);
+            // Subsystem1 subsystem1 = new Subsystem1();
+            // Subsystem2 subsystem2 = new Subsystem2();
+            // Facade.Implementation.Facade facade = new Facade.Implementation.Facade(subsystem1, subsystem2);
+            // Client.ClientCode(facade);
+            
+            // TODO:Flyweight
+            
+            // User Names Optimization DotMemory
+            // Run test in Demo class
+            
+            // Text Formatting
+            
+            var ft = new FormattedText("This is a brave new world");
+            ft.Capitalize(10, 15);
+            Console.WriteLine(ft);
+            
+            var bft = new BetterFormattedText("This is a brave new world");
+            bft.GetRange(10, 15).Capitalize = true;
+            Console.WriteLine(bft);
+            
+            
+            
+            
 
             Console.ReadKey();
         }

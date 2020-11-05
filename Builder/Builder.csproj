@@ -12,6 +12,7 @@
       <ProjectReference Include="..\Decorator\Decorator.csproj" />
       <ProjectReference Include="..\Facade\Facade.csproj" />
       <ProjectReference Include="..\Factories\Factories.csproj" />
+      <ProjectReference Include="..\Flyweight\Flyweight.csproj" />
       <ProjectReference Include="..\Prototype\Prototype.csproj" />
       <ProjectReference Include="..\Singleton\Singleton.csproj" />
     </ItemGroup>
