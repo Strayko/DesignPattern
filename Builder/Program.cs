@@ -1,5 +1,4 @@
 ﻿using System;
-using Proxy.ProtectionProxy;
 
 namespace Builder
 {
@@ -338,9 +337,15 @@ namespace Builder
             
             // Protection Proxy
             
-            ICar car = new CarProxy(new Driver(12));
-            car.Drive();
+            // ICar car = new CarProxy(new Driver(25));
+            // car.Drive();
             
+            // Property Proxy
+            
+            // var c = new Creature();
+            // c.Agility = 10; // c.set_Agility(10) xxxxxxx
+                               // c.Agility = new Property<int>(10)
+            // c.Agility = 10;
             
 
             Console.ReadKey();
