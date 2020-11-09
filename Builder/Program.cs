@@ -1,5 +1,5 @@
 ﻿using System;
-using Flyweight.Implementation;
+using Proxy.ProtectionProxy;
 
 namespace Builder
 {
@@ -292,49 +292,54 @@ namespace Builder
             
             // Implementation
             
-            var factory = new FlyweightFactory(
-                new Car {Company = "Chevrolet", Model = "Camaro2018", Color = "pink"},    
-                new Car {Company = "Mercedes Benz", Model = "C300", Color = "black"},
-                new Car {Company = "Mercedes Benz", Model = "C500", Color = "red"},
-                new Car {Company = "Bmw", Model = "M5", Color = "red"},
-                new Car {Company = "Bmw", Model = "X6", Color = "white"}
-            );
-            factory.listFlyweights();
+            // var factory = new FlyweightFactory(
+            //     new Car {Company = "Chevrolet", Model = "Camaro2018", Color = "pink"},    
+            //     new Car {Company = "Mercedes Benz", Model = "C300", Color = "black"},
+            //     new Car {Company = "Mercedes Benz", Model = "C500", Color = "red"},
+            //     new Car {Company = "Bmw", Model = "M5", Color = "red"},
+            //     new Car {Company = "Bmw", Model = "X6", Color = "white"}
+            // );
+            // factory.listFlyweights();
+            //
+            // addCarToPoliceDatabase(factory, new Car {
+            //     Number = "CL234IR",
+            //     Owner = "James Doe",
+            //     Company = "BMW",
+            //     Model = "M5",
+            //     Color = "red"
+            // });
+            //
+            // addCarToPoliceDatabase(factory, new Car {
+            //     Number = "CL234IR",
+            //     Owner = "James Doe",
+            //     Company = "BMW",
+            //     Model = "X1",
+            //     Color = "red"
+            // });
+            //
+            // factory.listFlyweights();
+            //
+            // static void addCarToPoliceDatabase(FlyweightFactory factory, Car car)
+            // {
+            //     Console.WriteLine("\nClient: Adding a car to database.");
+            //
+            //     var flyweight = factory.GetFlyweight(new Car {
+            //         Color = car.Color,
+            //         Model = car.Model,
+            //         Company = car.Company
+            //     });
+            //
+            //     // The client code either stores or calculates extrinsic state and
+            //     // passes it to the flyweight's methods.
+            //     flyweight.Operation(car);
+            // }
             
-            addCarToPoliceDatabase(factory, new Car {
-                Number = "CL234IR",
-                Owner = "James Doe",
-                Company = "BMW",
-                Model = "M5",
-                Color = "red"
-            });
-
-            addCarToPoliceDatabase(factory, new Car {
-                Number = "CL234IR",
-                Owner = "James Doe",
-                Company = "BMW",
-                Model = "X1",
-                Color = "red"
-            });
-
-            factory.listFlyweights();
-
-            static void addCarToPoliceDatabase(FlyweightFactory factory, Car car)
-            {
-                Console.WriteLine("\nClient: Adding a car to database.");
-
-                var flyweight = factory.GetFlyweight(new Car {
-                    Color = car.Color,
-                    Model = car.Model,
-                    Company = car.Company
-                });
-
-                // The client code either stores or calculates extrinsic state and
-                // passes it to the flyweight's methods.
-                flyweight.Operation(car);
-            }
+            // TODO:Proxy
             
+            // Protection Proxy
             
+            ICar car = new CarProxy(new Driver(12));
+            car.Drive();
             
             
 

@@ -14,6 +14,7 @@
       <ProjectReference Include="..\Factories\Factories.csproj" />
       <ProjectReference Include="..\Flyweight\Flyweight.csproj" />
       <ProjectReference Include="..\Prototype\Prototype.csproj" />
+      <ProjectReference Include="..\Proxy\Proxy.csproj" />
       <ProjectReference Include="..\Singleton\Singleton.csproj" />
     </ItemGroup>
 
