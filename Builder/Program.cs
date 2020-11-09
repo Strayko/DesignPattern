@@ -351,6 +351,23 @@ namespace Builder
 
             // Console.WriteLine(10f * 5.Percent());
             // Console.WriteLine(2.Percent() + 3.Percent());
+
+            // Composite Proxy SoA/AoS
+            
+            //AoS (Array of Structure)
+            // var creatures = new Creature[100];
+            // foreach (var c in creatures)
+            // {
+            //     c.X++;
+            // }
+            
+            //AOS/SOA duality
+            // var creatures2 = new Creatures(100); //SoA (Structure of Array)
+            // foreach (CreatureProxy c in creatures2)
+            // {
+            //     c.X++;
+            // }
+            
             
             
 
