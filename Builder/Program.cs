@@ -1,4 +1,5 @@
 ﻿using System;
+using Proxy.DynamicProxyForLogging;
 
 namespace Builder
 {
@@ -368,7 +369,14 @@ namespace Builder
             //     c.X++;
             // }
             
+            // Dynamic Proxy For Logging
+
+            var ba = Log<BankAccount>.As<IBankAccount>();
             
+            ba.Deposit(100);
+            ba.Withdraw(50);
+
+            Console.WriteLine(ba);
             
 
             Console.ReadKey();
