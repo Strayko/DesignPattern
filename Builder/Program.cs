@@ -1,5 +1,5 @@
 ﻿using System;
-using Proxy.DynamicProxyForLogging;
+using Proxy.Implementation;
 
 namespace Builder
 {
@@ -371,13 +371,26 @@ namespace Builder
             
             // Dynamic Proxy For Logging
 
-            var ba = Log<BankAccount>.As<IBankAccount>();
+            // var ba = Log<BankAccount>.As<IBankAccount>();
+            //
+            // ba.Deposit(100);
+            // ba.Withdraw(50);
+            //
+            // Console.WriteLine(ba);
             
-            ba.Deposit(100);
-            ba.Withdraw(50);
+            // Implementation
+            
+            Client client = new Client();
 
-            Console.WriteLine(ba);
-            
+            Console.WriteLine("Client: Executing the client code with a real subject:");
+            RealSubject realSubject = new RealSubject();
+            client.ClientCode(realSubject);
+
+            Console.WriteLine();
+
+            Console.WriteLine("Client: Executing the same client code with proxy:");
+            Proxy.Implementation.Proxy proxy = new Proxy.Implementation.Proxy(realSubject);
+            client.ClientCode(proxy);
 
             Console.ReadKey();
         }
