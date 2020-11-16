@@ -1,5 +1,5 @@
 ﻿using System;
-using Proxy.Implementation;
+using ChainOfResponsibility.MethodChain;
 
 namespace Builder
 {
@@ -380,17 +380,38 @@ namespace Builder
             
             // Implementation
             
-            Client client = new Client();
+            // Client client = new Client();
+            //
+            // Console.WriteLine("Client: Executing the client code with a real subject:");
+            // RealSubject realSubject = new RealSubject();
+            // client.ClientCode(realSubject);
+            //
+            // Console.WriteLine();
+            //
+            // Console.WriteLine("Client: Executing the same client code with proxy:");
+            // Proxy.Implementation.Proxy proxy = new Proxy.Implementation.Proxy(realSubject);
+            // client.ClientCode(proxy);
+            
+            // TODO:ChainOfResponsibility
+            
+            // Method Chain
+            
+            var goblin = new Creature("Goblin", 2,2);
+            Console.WriteLine(goblin);
+            
+            var root =  new CreatureModifier(goblin);
+            
+            root.Add(new NoBonusesModifier(goblin));
+            
+            Console.WriteLine("Let's double the goblin's attack");
+            root.Add(new DoubleAttackModifier(goblin));
+            Console.WriteLine("Let's increase goblin's defense");
+            root.Add(new IncreasedDefenseModifier(goblin));
+            root.Handle();
 
-            Console.WriteLine("Client: Executing the client code with a real subject:");
-            RealSubject realSubject = new RealSubject();
-            client.ClientCode(realSubject);
-
-            Console.WriteLine();
-
-            Console.WriteLine("Client: Executing the same client code with proxy:");
-            Proxy.Implementation.Proxy proxy = new Proxy.Implementation.Proxy(realSubject);
-            client.ClientCode(proxy);
+            Console.WriteLine(goblin);
+            
+            
 
             Console.ReadKey();
         }
