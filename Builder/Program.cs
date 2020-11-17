@@ -1,5 +1,5 @@
 ﻿using System;
-using ChainOfResponsibility.MethodChain;
+using ChainOfResponsibility.MediatorChain;
 
 namespace Builder
 {
@@ -394,22 +394,16 @@ namespace Builder
             
             // TODO:ChainOfResponsibility
             
-            // Method Chain
+            // Mediator Chain
             
-            var goblin = new Creature("Goblin", 2,2);
+            var game = new Game();
+            var goblin = new Creature(game, "Strong Goblin", 3, 3);
             Console.WriteLine(goblin);
-            
-            var root =  new CreatureModifier(goblin);
-            
-            root.Add(new NoBonusesModifier(goblin));
-            
-            Console.WriteLine("Let's double the goblin's attack");
-            root.Add(new DoubleAttackModifier(goblin));
-            Console.WriteLine("Let's increase goblin's defense");
-            root.Add(new IncreasedDefenseModifier(goblin));
-            root.Handle();
 
-            Console.WriteLine(goblin);
+            using (new DoubleAttackModifier(game, goblin))
+            {
+                Console.WriteLine(goblin);
+            }
             
             
 
