@@ -9,6 +9,7 @@
       <ProjectReference Include="..\Adapter\Adapter.csproj" />
       <ProjectReference Include="..\Bridge\Bridge.csproj" />
       <ProjectReference Include="..\ChainOfResponsibility\ChainOfResponsibility.csproj" />
+      <ProjectReference Include="..\Command\Command.csproj" />
       <ProjectReference Include="..\Composite\Composite.csproj" />
       <ProjectReference Include="..\Decorator\Decorator.csproj" />
       <ProjectReference Include="..\Facade\Facade.csproj" />

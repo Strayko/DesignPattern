@@ -1,6 +1,5 @@
 ﻿using System;
-using ChainOfResponsibility.Implementation;
-using ChainOfResponsibility.MediatorChain;
+using Command.Implementation;
 
 namespace Builder
 {
@@ -398,21 +397,53 @@ namespace Builder
             // Mediator Chain
             
             // The other part of the client code constructs the actual chain.
-            var monkey = new MonkeyHandler();
-            var squirrel = new SquirrelHandler();
-            var dog = new DogHandler();
-
-            monkey.SetNext(squirrel).SetNext(dog);
+            // var monkey = new MonkeyHandler();
+            // var squirrel = new SquirrelHandler();
+            // var dog = new DogHandler();
+            //
+            // monkey.SetNext(squirrel).SetNext(dog);
             
             // The client should be able to send a request to any handler, not
             // just the first one in the chain.
 
-            Console.WriteLine("Chain: Monkey > Squirrel > Dog\n");
-            Client.ClientCode(monkey);
-            Console.WriteLine();
-
-            Console.WriteLine("Subchain: Squirrel > Dod\n");
-            Client.ClientCode(squirrel);
+            // Console.WriteLine("Chain: Monkey > Squirrel > Dog\n");
+            // Client.ClientCode(monkey);
+            // Console.WriteLine();
+            //
+            // Console.WriteLine("Subchain: Squirrel > Dod\n");
+            // Client.ClientCode(squirrel);
+            
+            // TODO:Command
+            
+            // Example
+            
+            // var ba = new BankAccount();
+            // var commands = new List<BankAccountCommand>
+            // {
+            //     new BankAccountCommand(ba, BankAccountCommand.Action.Deposit, 100),
+            //     new BankAccountCommand(ba, BankAccountCommand.Action.Withdraw, 50)
+            // };
+            //
+            // foreach (var c in commands)
+            // {
+            //     c.Call();
+            // }
+            //
+            // foreach (var c in Enumerable.Reverse(commands))
+            // {
+            //     c.Undo();
+            // }
+            
+            // Implementation
+            
+            // The client code can parameterize an invoker with any commands.
+            
+            Invoker invoker = new Invoker();
+            invoker.SetOnStart(new SimpleCommand("Say Hi!"));
+            Receiver receiver = new Receiver();
+            invoker.SetOnFinish(new ComplexCommand(receiver, "Send email", "Save report"));
+            
+            invoker.DoSomethingImportant();
             
             
 
