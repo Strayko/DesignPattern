@@ -1,4 +1,5 @@
 ﻿using System;
+using ChainOfResponsibility.Implementation;
 using ChainOfResponsibility.MediatorChain;
 
 namespace Builder
@@ -396,14 +397,22 @@ namespace Builder
             
             // Mediator Chain
             
-            var game = new Game();
-            var goblin = new Creature(game, "Strong Goblin", 3, 3);
-            Console.WriteLine(goblin);
+            // The other part of the client code constructs the actual chain.
+            var monkey = new MonkeyHandler();
+            var squirrel = new SquirrelHandler();
+            var dog = new DogHandler();
 
-            using (new DoubleAttackModifier(game, goblin))
-            {
-                Console.WriteLine(goblin);
-            }
+            monkey.SetNext(squirrel).SetNext(dog);
+            
+            // The client should be able to send a request to any handler, not
+            // just the first one in the chain.
+
+            Console.WriteLine("Chain: Monkey > Squirrel > Dog\n");
+            Client.ClientCode(monkey);
+            Console.WriteLine();
+
+            Console.WriteLine("Subchain: Squirrel > Dod\n");
+            Client.ClientCode(squirrel);
             
             
 
