@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainOfResponsibility", "Ch
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Command", "Command\Command.csproj", "{46CE7E63-AA6B-4577-8F99-E9B9295D8660}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interpreter", "Interpreter\Interpreter.csproj", "{651B65C5-4744-4576-9A9B-5D66443E4E53}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,5 +86,9 @@ Global
 		{46CE7E63-AA6B-4577-8F99-E9B9295D8660}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46CE7E63-AA6B-4577-8F99-E9B9295D8660}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46CE7E63-AA6B-4577-8F99-E9B9295D8660}.Release|Any CPU.Build.0 = Release|Any CPU
+		{651B65C5-4744-4576-9A9B-5D66443E4E53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{651B65C5-4744-4576-9A9B-5D66443E4E53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{651B65C5-4744-4576-9A9B-5D66443E4E53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{651B65C5-4744-4576-9A9B-5D66443E4E53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,5 +1,8 @@
 ﻿using System;
-using Command.Implementation;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Interpreter.HandmadeInterpreter;
 
 namespace Builder
 {
@@ -438,18 +441,31 @@ namespace Builder
             
             // The client code can parameterize an invoker with any commands.
             
-            Invoker invoker = new Invoker();
-            invoker.SetOnStart(new SimpleCommand("Say Hi!"));
-            Receiver receiver = new Receiver();
-            invoker.SetOnFinish(new ComplexCommand(receiver, "Send email", "Save report"));
+            // Invoker invoker = new Invoker();
+            // invoker.SetOnStart(new SimpleCommand("Say Hi!"));
+            // Receiver receiver = new Receiver();
+            // invoker.SetOnFinish(new ComplexCommand(receiver, "Send email", "Save report"));
+            //
+            // invoker.DoSomethingImportant();
             
-            invoker.DoSomethingImportant();
+            // TODO:Interpreter
+            
+            // Handmade Interpreter
+            
+            // (13 + 4) - (12 + 1)
+            // string input = "(13+4)-(12+1)";
+            // var tokens = Lexing.Lex(input);
+            // Console.WriteLine(string.Join("\t", tokens));
+            //
+            // var parsed = Lexing.Parse(tokens);
+            // Console.WriteLine($"{input} = {parsed.Value}");
+            
+            // Implementation
             
             
-
-            Console.ReadKey();
         }
-
+        
+        
         
     }
 }
