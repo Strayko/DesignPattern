@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Interpreter.HandmadeInterpreter;
+using Iterator.Implementation;
 
 namespace Builder
 {
@@ -460,9 +457,64 @@ namespace Builder
             // var parsed = Lexing.Parse(tokens);
             // Console.WriteLine($"{input} = {parsed.Value}");
             
+            // TODO:Iterator
+            
+            // Iterator Object
+
+            //   1
+            //  / \
+            // 2   3
+            
+            // in order: 213
+            // var root = new Node<int>(1, new Node<int>(2), new Node<int>(3));
+            // var it = new InOrderIterator<int>(root);
+            // while (it.MoveNext())
+            // {
+            //     Console.WriteLine(it.Current.Value);
+            //     Console.WriteLine(",");
+            // }
+            
+            // Iterator Method
+            
+            // var tree = new BinaryTree<int>(root);
+            // Console.WriteLine(string.Join(",", tree.InOrder.Select(x => x.Value)));
+            
+            // Iterators And Duck Typing
+            
+            // var tree2 = new BinaryTree<int>(root);
+            // foreach(var node in tree2)
+            //     Console.WriteLine(node.Value);
+            
             // Implementation
             
+            // The client code may or may not know about the Concrete Iterator
+            // or Collection classes, depending on the level of indirection you
+            // want to keep in your program.
             
+            var collection = new WordsCollection();
+            collection.AddItem("First");
+            collection.AddItem("Second");
+            collection.AddItem("Third");
+
+            Console.WriteLine("Straight traversal:");
+
+            foreach (var element in collection)
+            {
+                Console.WriteLine(element);
+            }
+
+            Console.WriteLine("\nReverse traversal:");
+            
+            collection.ReverseDirection();
+
+            foreach (var element in collection)
+            {
+                Console.WriteLine(element);
+            }
+            
+
+            Console.ReadKey();
+
         }
         
         
