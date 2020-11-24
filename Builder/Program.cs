@@ -1,11 +1,14 @@
 ﻿using System;
-using Iterator.Implementation;
+using System.Threading.Tasks;
+using Autofac;
+using Mediator.MediatR;
+using MediatR;
 
 namespace Builder
 {
     class Program
     { 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             // TODO:Builder
 
@@ -491,27 +494,96 @@ namespace Builder
             // or Collection classes, depending on the level of indirection you
             // want to keep in your program.
             
-            var collection = new WordsCollection();
-            collection.AddItem("First");
-            collection.AddItem("Second");
-            collection.AddItem("Third");
-
-            Console.WriteLine("Straight traversal:");
-
-            foreach (var element in collection)
-            {
-                Console.WriteLine(element);
-            }
-
-            Console.WriteLine("\nReverse traversal:");
+            // var collection = new WordsCollection();
+            // collection.AddItem("First");
+            // collection.AddItem("Second");
+            // collection.AddItem("Third");
+            //
+            // Console.WriteLine("Straight traversal:");
+            //
+            // foreach (var element in collection)
+            // {
+            //     Console.WriteLine(element);
+            // }
+            //
+            // Console.WriteLine("\nReverse traversal:");
+            //
+            // collection.ReverseDirection();
+            //
+            // foreach (var element in collection)
+            // {
+            //     Console.WriteLine(element);
+            // }
             
-            collection.ReverseDirection();
-
-            foreach (var element in collection)
-            {
-                Console.WriteLine(element);
-            }
+            // TODO:Mediator
             
+            // Chat Room
+
+            // var room = new ChatRoom();
+            //
+            // var john = new Person("John");
+            // var jane = new Person("jane");
+            //
+            // room.Join(john);
+            // room.Join(jane);
+            //
+            // john.Say("hi");
+            // jane.Say("oh, hey john");
+            //
+            // var simon = new Person("Simon");
+            // room.Join(simon);
+            // simon.Say("hi everyone!");
+            //
+            // jane.PrivateMessage("Simon", "glad you could join us!");
+            
+            // Event Broker
+            
+            // var cb = new ContainerBuilder();
+            // cb.RegisterType<EventBroker>().SingleInstance();
+            // cb.RegisterType<FootballCoach>();
+            // cb.Register((c, p) => 
+            //     new FootballPlayer(
+            //         c.Resolve<EventBroker>(),
+            //         p.Named<string>("name")
+            //     ));
+            //
+            // using (var c = cb.Build())
+            // {
+            //     var coach = c.Resolve<FootballCoach>();
+            //     var player1 = c.Resolve<FootballPlayer>(new NamedParameter("name", "John"));
+            //     var player2 = c.Resolve<FootballPlayer>(new NamedParameter("name", "Chris"));
+            //
+            //     player1.Score();
+            //     player1.Score();
+            //     player1.Score(); // x
+            //     player1.AssaultReferee();
+            //     player2.Score();
+            // }
+            
+            // MediatR
+            
+            // var builder = new ContainerBuilder();
+            // builder.RegisterType<Mediator>()
+            //     .As<IMediator>()
+            //     .InstancePerLifetimeScope();
+            //
+            // builder.Register<ServiceFactory>(ctx =>
+            // {
+            //     var c = ctx.Resolve<IComponentContext>();
+            //     return t => c.Resolve(t);
+            // });
+            //
+            // builder.RegisterAssemblyTypes(typeof(Program).Assembly)
+            //     .AsImplementedInterfaces();
+            //
+            // var container = builder.Build();
+            // var mediator = container.Resolve<IMediator>();
+            // var response = await mediator.Send(new PingCommand());
+            // Console.WriteLine($"We got a response at {response.Timestamp}");
+
+
+
+
 
             Console.ReadKey();
 
