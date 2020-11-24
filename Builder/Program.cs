@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Threading.Tasks;
-using Autofac;
-using Mediator.MediatR;
-using MediatR;
+using Mediator.Implementation;
 
 namespace Builder
 {
     class Program
     { 
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
             // TODO:Builder
 
@@ -581,9 +578,21 @@ namespace Builder
             // var response = await mediator.Send(new PingCommand());
             // Console.WriteLine($"We got a response at {response.Timestamp}");
 
+            // Implementation
+            
+            // The client code.
+            Component1 component1 = new Component1();
+            Component2 component2 = new Component2();
+            new ConcreteMediator(component1, component2);
 
+            Console.WriteLine("Client triggers operation A.");
+            component1.DoA();
 
+            Console.WriteLine();
 
+            Console.WriteLine("Client triggers operation D.");
+            component2.Dod();
+            
 
             Console.ReadKey();
 
