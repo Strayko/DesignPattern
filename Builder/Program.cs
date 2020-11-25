@@ -1,5 +1,6 @@
 ﻿using System;
-using Mediator.Implementation;
+using Memento.Example;
+using Memento.Implementation;
 
 namespace Builder
 {
@@ -581,18 +582,57 @@ namespace Builder
             // Implementation
             
             // The client code.
-            Component1 component1 = new Component1();
-            Component2 component2 = new Component2();
-            new ConcreteMediator(component1, component2);
+            // Component1 component1 = new Component1();
+            // Component2 component2 = new Component2();
+            // new ConcreteMediator(component1, component2);
+            //
+            // Console.WriteLine("Client triggers operation A.");
+            // component1.DoA();
+            //
+            // Console.WriteLine();
+            //
+            // Console.WriteLine("Client triggers operation D.");
+            // component2.Dod();
+            
+            // TODO:Memento
+            
+            // Example
+            
+            // var ba = new BankAccount(100);
+            // ba.Deposit(50);
+            // ba.Deposit(25);
+            // Console.WriteLine(ba);
+            //
+            // ba.Undo();
+            // Console.WriteLine($"Undo 1: {ba}");
+            // ba.Undo();
+            // Console.WriteLine($"Undo 2: {ba}");
+            // ba.Redo();
+            // Console.WriteLine($"Redo: {ba}");
 
-            Console.WriteLine("Client triggers operation A.");
-            component1.DoA();
+            // Implementation
+            
+            Originator originator = new Originator("Super-duper");
+            Caretaker caretaker = new Caretaker(originator);
+            
+            caretaker.Backup();
+            originator.DoSomething();
+            
+            caretaker.Backup();
+            originator.DoSomething();
+            
+            caretaker.Backup();
+            originator.DoSomething();
 
             Console.WriteLine();
+            caretaker.ShowHistory();
 
-            Console.WriteLine("Client triggers operation D.");
-            component2.Dod();
-            
+            Console.WriteLine("\nClient: Now, let's rollback!\n");
+            caretaker.Undo();
+
+            Console.WriteLine("\n\nClient: Once more!\n");
+            caretaker.Undo();
+
 
             Console.ReadKey();
 
