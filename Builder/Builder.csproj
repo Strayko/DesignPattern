@@ -19,6 +19,7 @@
       <ProjectReference Include="..\Iterator\Iterator.csproj" />
       <ProjectReference Include="..\Mediator\Mediator.csproj" />
       <ProjectReference Include="..\Memento\Memento.csproj" />
+      <ProjectReference Include="..\NullObject\NullObject.csproj" />
       <ProjectReference Include="..\Prototype\Prototype.csproj" />
       <ProjectReference Include="..\Proxy\Proxy.csproj" />
       <ProjectReference Include="..\Singleton\Singleton.csproj" />

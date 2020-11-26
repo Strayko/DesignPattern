@@ -1,6 +1,6 @@
 ﻿using System;
-using Memento.Example;
-using Memento.Implementation;
+using Autofac;
+using NullObject.Example;
 
 namespace Builder
 {
@@ -612,26 +612,45 @@ namespace Builder
 
             // Implementation
             
-            Originator originator = new Originator("Super-duper");
-            Caretaker caretaker = new Caretaker(originator);
+            // Originator originator = new Originator("Super-duper");
+            // Caretaker caretaker = new Caretaker(originator);
+            //
+            // caretaker.Backup();
+            // originator.DoSomething();
+            //
+            // caretaker.Backup();
+            // originator.DoSomething();
+            //
+            // caretaker.Backup();
+            // originator.DoSomething();
+            //
+            // Console.WriteLine();
+            // caretaker.ShowHistory();
+            //
+            // Console.WriteLine("\nClient: Now, let's rollback!\n");
+            // caretaker.Undo();
+            //
+            // Console.WriteLine("\n\nClient: Once more!\n");
+            // caretaker.Undo();
             
-            caretaker.Backup();
-            originator.DoSomething();
+            // TODO:NullObject
             
-            caretaker.Backup();
-            originator.DoSomething();
+            // Example
             
-            caretaker.Backup();
-            originator.DoSomething();
+            // var cb = new ContainerBuilder();
+            // cb.RegisterType<BankAccount>();
+            // cb.RegisterType<NullLog>().As<ILog>();
+            // using (var c = cb.Build())
+            // {
+            //     var ba = c.Resolve<BankAccount>();
+            //     ba.Deposit(100);
+            // }
 
-            Console.WriteLine();
-            caretaker.ShowHistory();
-
-            Console.WriteLine("\nClient: Now, let's rollback!\n");
-            caretaker.Undo();
-
-            Console.WriteLine("\n\nClient: Once more!\n");
-            caretaker.Undo();
+            // var log = Null<ILog>.Instance;
+            // log.Info("asdsad");
+            // var ba = new BankAccount(log);
+            // ba.Deposit(100);
+            
 
 
             Console.ReadKey();
