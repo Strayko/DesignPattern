@@ -1,6 +1,5 @@
 ﻿using System;
-using Autofac;
-using NullObject.Example;
+using Observer.Implementation;
 
 namespace Builder
 {
@@ -651,13 +650,53 @@ namespace Builder
             // var ba = new BankAccount(log);
             // ba.Deposit(100);
             
+            // Via Event Key
+            
+            // var person = new Person();
+            // person.FallsIll += CallDoctor;
+            // person.CatchACold();
+
+            // Weak Event
+            
+            // var button = new Button();
+            // var window = new Window(button);
+            // var windowRef = new WeakReference(window);
+            // button.Fire();
+            //
+            // Console.WriteLine("Setting window to null");
+            // window = null;
+            //
+            // FireGC();
+            // Console.WriteLine($"Is the window alive after GC? {windowRef.IsAlive}");
+
+            // Implementation
+
+            // var subject = new Subject();
+            // var observerA = new ConcreteObserverA();
+            // subject.Attach(observerA);
+            //
+            // var observerB = new ConcreteObserverB();
+            // subject.Attach(observerB);
+            //
+            // subject.SomeBusinessLogic();
+            // subject.SomeBusinessLogic();
+            //
+            // subject.Detach(observerB);
+            //
+            // subject.SomeBusinessLogic();
 
 
             Console.ReadKey();
 
         }
-        
-        
-        
+
+        // private static void FireGC()
+        // {
+        //     Console.WriteLine("Starting GC");
+        //     GC.Collect();
+        //     GC.WaitForPendingFinalizers();
+        //     GC.Collect();
+        //     Console.WriteLine("GC is done");
+        // }
     }
 }
