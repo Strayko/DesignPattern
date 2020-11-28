@@ -1,5 +1,7 @@
 ﻿using System;
+using System.ComponentModel;
 using Observer.Implementation;
+using Observer.ObservableCollections;
 
 namespace Builder
 {
@@ -684,6 +686,19 @@ namespace Builder
             // subject.Detach(observerB);
             //
             // subject.SomeBusinessLogic();
+            
+            // Observable Collections
+            
+            var market = new Market(); //observer
+            market.Prices.ListChanged += (sender, eventArgs) =>
+            {
+                if (eventArgs.ListChangedType == ListChangedType.ItemAdded)
+                {
+                    float price = ((BindingList<float>) sender)[eventArgs.NewIndex];
+                    Console.WriteLine($"Binding list got a price of {price}");
+                }
+            };
+            market.AddPrice(123);
 
 
             Console.ReadKey();
