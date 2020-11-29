@@ -1,12 +1,11 @@
-﻿using System;
-using System.ComponentModel;
-using Observer.Implementation;
-using Observer.ObservableCollections;
+﻿
+using System;
+using State.Implementation;
 
 namespace Builder
 {
     class Program
-    { 
+    {
         static void Main(string[] args)
         {
             // TODO:Builder
@@ -43,61 +42,61 @@ namespace Builder
             //         .AsA("Engineer")
             //         .Earning(12000);
             // Console.WriteLine(personFace);
-            
+
             // TODO:Factories
 
             // Factory Method
             // var point = Point.Factory.NewPolarPoint(1.0, Math.PI / 2);
             // var origin = Point.Origin;
             // Console.WriteLine(point);
-            
+
             // Asynchronous Factory Method
             // Foo x = await Foo.CreateAsync();
-            
+
             // Abstract Factory
             // var machine = new HotDrinkMachine();
             // var drink = machine.MakeDrink(HotDrinkMachine.AvailableDrink.Tea, 100);
             // drink.Consume();
-            
+
             // Use reflection
             // var machine = new HotDrinkMachine();
             // var drink = machine.MakeDrink();
             // drink.Consume();
-            
+
             // TODO:Prototype
-            
+
             // Copy Through Serialization
             // var john = new PersonProto(new []{"John", "Smith"}, new Address("Bulevar Road", 1223));
             // var jane = john.DeepCopy();
             // jane.Address.HouseNumber = 3221;
             // Console.WriteLine(john);
             // Console.WriteLine(jane);
-            
+
             // TODO:Singleton
 
             // Monostate
             // var ceo = new CEO();
             // ceo.Name = "Adam Smith";
             // ceo.Age = 55;
-            
+
             // var ceo2 = new CEO();
             // Console.WriteLine(ceo2);
-            
+
             // TODO:Adapter
-            
+
             // Adapter Caching
             // var point2 = new PointAdap(3,4);
             // point2.Draw();
             // point2.Draw();
-            
+
             // Generic Value Adapter
             // var v = new Vector2i(1,2);
             // v[0] = 0;
-            
+
             // var vv = new Vector2i(3,2);
             // var result = v + vv;
             // Vector3f u = Vector3f.Create(3.5f, 2.2f, 1);
-            
+
             // Adapter In Dependency Injection
             // var b = new ContainerBuilder();
             // b.RegisterType<SaveCommand>().As<ICommand>()
@@ -118,14 +117,14 @@ namespace Builder
             //         btn.PrintMe();
             //     }
             // }
-            
+
             // Adapter Impementation
             // Adaptee adaptee = new Adaptee();
             // ITarget target = new Adapter3(adaptee);
             // Console.WriteLine(target.GetRequest());
-            
+
             // TODO:Bridge
-            
+
             // Implementation
             // Example 1
             // var renderer = new VectorRenderer();
@@ -133,7 +132,7 @@ namespace Builder
             // circle.Draw();
             // circle.Resize(2);
             // circle.Draw();
-            
+
             // Example 2 (with Container Builder)
             // var cb = new ContainerBuilder();
             // cb.RegisterType<VectorRenderer>().As<IRenderer>()
@@ -148,26 +147,26 @@ namespace Builder
             //     circle5.Resize(2.0f);
             //     circle5.Draw();
             // }
-            
+
             // TODO:Composite
-            
+
             // Example
 
             // var drawing = new GraphicObject {Name = "My Drawing"};
             // drawing.Children.Add(new Square {Color = "Red"});
             // drawing.Children.Add(new Composite.Example.Circle {Color = "Yellow"});
-            
+
             // var group = new GraphicObject();
             // group.Children.Add(new Composite.Example.Circle {Color = "Blue"});
             // group.Children.Add(new Square {Color = "Blue"});
             // drawing.Children.Add(group);
             //
             // Console.WriteLine(drawing);
-            
+
             //
-            
+
             // Neural Networks
-            
+
             // var neuron1 = new Neuron();
             // var neuron2 = new Neuron();
             //
@@ -178,16 +177,16 @@ namespace Builder
             //
             // neuron1.ConnectTo(layer1);
             // layer1.ConnectTo(layer2);
-            
+
             // Implementation
-            
+
             // Client client = new Client();
             // This way the client code can support the simple leaf
             // components...
             // Leaf leaf = new Leaf();
             // Console.WriteLine("Client: I get a simple component:");
             // client.ClientCode(leaf);
-            
+
             // ...as well as the complex composites.
             // Composite.Implementation.Composite three = new Composite.Implementation.Composite();
             // Component branch1 = new Composite.Implementation.Composite();
@@ -202,16 +201,16 @@ namespace Builder
             //
             // Console.WriteLine("Client: I don't need to check the components classes even when managing the three:\n");
             // client.ClientCode2(three, leaf);
-            
+
             // TODO:Decorator
-            
+
             // Implementation
             // Client client = new Client();
             // var simple = new ConcreteComponent();
             // Console.WriteLine("Client: I get simple component");
             // client.ClientCode(simple);
             // Console.WriteLine();
-            
+
             // ...as well as decorated ones.
             //
             // Note how decorators can wrap not only simple components but the
@@ -220,7 +219,7 @@ namespace Builder
             // ConcreteDecoratorB decorator2 = new ConcreteDecoratorB(decorator1);
             // Console.WriteLine("Client: Now I've got a decorated component");
             // client.ClientCode(decorator2);
-            
+
             // Adapter Decorator
 
             // MyStringBuilder s = "hello ";
@@ -228,12 +227,12 @@ namespace Builder
             // Console.WriteLine(s);
 
             // Multiple Inheritance With Interface
-            
+
             // var d = new Dragon();
             // d.Weight = 22;
             // d.Fly();
             // d.Crawl();
-            
+
             // Multiple Inheritance with Default Interface Members
 
             // Dragon d = new Dragon {Age = 5};
@@ -242,7 +241,7 @@ namespace Builder
             //     bird.Fly();
             // if (d is ILizard lizard)
             //     lizard.Crawl();
-            
+
             // Dynamic Decorator Composition
 
             // var square = new Square(1.23f);
@@ -255,7 +254,7 @@ namespace Builder
             // Console.WriteLine(redHalfTransparentSquare.AsString());
 
             // Decorator In Dependency Injection
-            
+
             // var b = new ContainerBuilder();
             // b.RegisterType<ReportingService>().Named<IReportingService>("reporting");
             // b.RegisterDecorator<IReportingService>(
@@ -267,23 +266,23 @@ namespace Builder
             //     var r = c.Resolve<IReportingService>();
             //     r.Report();
             // }
-            
+
             // TODO:Facade
-            
+
             // Implementation
-            
+
             // Subsystem1 subsystem1 = new Subsystem1();
             // Subsystem2 subsystem2 = new Subsystem2();
             // Facade.Implementation.Facade facade = new Facade.Implementation.Facade(subsystem1, subsystem2);
             // Client.ClientCode(facade);
-            
+
             // TODO:Flyweight
-            
+
             // User Names Optimization DotMemory
             // Run test in Demo class
-            
+
             // Text Formatting
-            
+
             // var ft = new FormattedText("This is a brave new world");
             // ft.Capitalize(10, 15);
             // Console.WriteLine(ft);
@@ -291,9 +290,9 @@ namespace Builder
             // var bft = new BetterFormattedText("This is a brave new world");
             // bft.GetRange(10, 15).Capitalize = true;
             // Console.WriteLine(bft);
-            
+
             // Implementation
-            
+
             // var factory = new FlyweightFactory(
             //     new Car {Company = "Chevrolet", Model = "Camaro2018", Color = "pink"},    
             //     new Car {Company = "Mercedes Benz", Model = "C300", Color = "black"},
@@ -335,42 +334,42 @@ namespace Builder
             //     // passes it to the flyweight's methods.
             //     flyweight.Operation(car);
             // }
-            
+
             // TODO:Proxy
-            
+
             // Protection Proxy
-            
+
             // ICar car = new CarProxy(new Driver(25));
             // car.Drive();
-            
+
             // Property Proxy
-            
+
             // var c = new Creature();
             // c.Agility = 10; // c.set_Agility(10) xxxxxxx
-                               // c.Agility = new Property<int>(10)
+            // c.Agility = new Property<int>(10)
             // c.Agility = 10;
-            
+
             // Value Proxy
 
             // Console.WriteLine(10f * 5.Percent());
             // Console.WriteLine(2.Percent() + 3.Percent());
 
             // Composite Proxy SoA/AoS
-            
+
             //AoS (Array of Structure)
             // var creatures = new Creature[100];
             // foreach (var c in creatures)
             // {
             //     c.X++;
             // }
-            
+
             //AOS/SOA duality
             // var creatures2 = new Creatures(100); //SoA (Structure of Array)
             // foreach (CreatureProxy c in creatures2)
             // {
             //     c.X++;
             // }
-            
+
             // Dynamic Proxy For Logging
 
             // var ba = Log<BankAccount>.As<IBankAccount>();
@@ -379,9 +378,9 @@ namespace Builder
             // ba.Withdraw(50);
             //
             // Console.WriteLine(ba);
-            
+
             // Implementation
-            
+
             // Client client = new Client();
             //
             // Console.WriteLine("Client: Executing the client code with a real subject:");
@@ -393,18 +392,18 @@ namespace Builder
             // Console.WriteLine("Client: Executing the same client code with proxy:");
             // Proxy.Implementation.Proxy proxy = new Proxy.Implementation.Proxy(realSubject);
             // client.ClientCode(proxy);
-            
+
             // TODO:ChainOfResponsibility
-            
+
             // Mediator Chain
-            
+
             // The other part of the client code constructs the actual chain.
             // var monkey = new MonkeyHandler();
             // var squirrel = new SquirrelHandler();
             // var dog = new DogHandler();
             //
             // monkey.SetNext(squirrel).SetNext(dog);
-            
+
             // The client should be able to send a request to any handler, not
             // just the first one in the chain.
 
@@ -414,11 +413,11 @@ namespace Builder
             //
             // Console.WriteLine("Subchain: Squirrel > Dod\n");
             // Client.ClientCode(squirrel);
-            
+
             // TODO:Command
-            
+
             // Example
-            
+
             // var ba = new BankAccount();
             // var commands = new List<BankAccountCommand>
             // {
@@ -435,22 +434,22 @@ namespace Builder
             // {
             //     c.Undo();
             // }
-            
+
             // Implementation
-            
+
             // The client code can parameterize an invoker with any commands.
-            
+
             // Invoker invoker = new Invoker();
             // invoker.SetOnStart(new SimpleCommand("Say Hi!"));
             // Receiver receiver = new Receiver();
             // invoker.SetOnFinish(new ComplexCommand(receiver, "Send email", "Save report"));
             //
             // invoker.DoSomethingImportant();
-            
+
             // TODO:Interpreter
-            
+
             // Handmade Interpreter
-            
+
             // (13 + 4) - (12 + 1)
             // string input = "(13+4)-(12+1)";
             // var tokens = Lexing.Lex(input);
@@ -458,15 +457,15 @@ namespace Builder
             //
             // var parsed = Lexing.Parse(tokens);
             // Console.WriteLine($"{input} = {parsed.Value}");
-            
+
             // TODO:Iterator
-            
+
             // Iterator Object
 
             //   1
             //  / \
             // 2   3
-            
+
             // in order: 213
             // var root = new Node<int>(1, new Node<int>(2), new Node<int>(3));
             // var it = new InOrderIterator<int>(root);
@@ -475,24 +474,24 @@ namespace Builder
             //     Console.WriteLine(it.Current.Value);
             //     Console.WriteLine(",");
             // }
-            
+
             // Iterator Method
-            
+
             // var tree = new BinaryTree<int>(root);
             // Console.WriteLine(string.Join(",", tree.InOrder.Select(x => x.Value)));
-            
+
             // Iterators And Duck Typing
-            
+
             // var tree2 = new BinaryTree<int>(root);
             // foreach(var node in tree2)
             //     Console.WriteLine(node.Value);
-            
+
             // Implementation
-            
+
             // The client code may or may not know about the Concrete Iterator
             // or Collection classes, depending on the level of indirection you
             // want to keep in your program.
-            
+
             // var collection = new WordsCollection();
             // collection.AddItem("First");
             // collection.AddItem("Second");
@@ -513,9 +512,9 @@ namespace Builder
             // {
             //     Console.WriteLine(element);
             // }
-            
+
             // TODO:Mediator
-            
+
             // Chat Room
 
             // var room = new ChatRoom();
@@ -534,9 +533,9 @@ namespace Builder
             // simon.Say("hi everyone!");
             //
             // jane.PrivateMessage("Simon", "glad you could join us!");
-            
+
             // Event Broker
-            
+
             // var cb = new ContainerBuilder();
             // cb.RegisterType<EventBroker>().SingleInstance();
             // cb.RegisterType<FootballCoach>();
@@ -558,9 +557,9 @@ namespace Builder
             //     player1.AssaultReferee();
             //     player2.Score();
             // }
-            
+
             // MediatR
-            
+
             // var builder = new ContainerBuilder();
             // builder.RegisterType<Mediator>()
             //     .As<IMediator>()
@@ -581,7 +580,7 @@ namespace Builder
             // Console.WriteLine($"We got a response at {response.Timestamp}");
 
             // Implementation
-            
+
             // The client code.
             // Component1 component1 = new Component1();
             // Component2 component2 = new Component2();
@@ -594,11 +593,11 @@ namespace Builder
             //
             // Console.WriteLine("Client triggers operation D.");
             // component2.Dod();
-            
+
             // TODO:Memento
-            
+
             // Example
-            
+
             // var ba = new BankAccount(100);
             // ba.Deposit(50);
             // ba.Deposit(25);
@@ -612,7 +611,7 @@ namespace Builder
             // Console.WriteLine($"Redo: {ba}");
 
             // Implementation
-            
+
             // Originator originator = new Originator("Super-duper");
             // Caretaker caretaker = new Caretaker(originator);
             //
@@ -633,11 +632,11 @@ namespace Builder
             //
             // Console.WriteLine("\n\nClient: Once more!\n");
             // caretaker.Undo();
-            
+
             // TODO:NullObject
-            
+
             // Example
-            
+
             // var cb = new ContainerBuilder();
             // cb.RegisterType<BankAccount>();
             // cb.RegisterType<NullLog>().As<ILog>();
@@ -651,15 +650,15 @@ namespace Builder
             // log.Info("asdsad");
             // var ba = new BankAccount(log);
             // ba.Deposit(100);
-            
+
             // Via Event Key
-            
+
             // var person = new Person();
             // person.FallsIll += CallDoctor;
             // person.CatchACold();
 
             // Weak Event
-            
+
             // var button = new Button();
             // var window = new Window(button);
             // var windowRef = new WeakReference(window);
@@ -686,24 +685,122 @@ namespace Builder
             // subject.Detach(observerB);
             //
             // subject.SomeBusinessLogic();
-            
-            // Observable Collections
-            
-            var market = new Market(); //observer
-            market.Prices.ListChanged += (sender, eventArgs) =>
-            {
-                if (eventArgs.ListChangedType == ListChangedType.ItemAdded)
-                {
-                    float price = ((BindingList<float>) sender)[eventArgs.NewIndex];
-                    Console.WriteLine($"Binding list got a price of {price}");
-                }
-            };
-            market.AddPrice(123);
 
+            // Observable Collections
+
+            // var market = new Market(); //observer
+            // market.Prices.ListChanged += (sender, eventArgs) =>
+            // {
+            //     if (eventArgs.ListChangedType == ListChangedType.ItemAdded)
+            //     {
+            //         float price = ((BindingList<float>) sender)[eventArgs.NewIndex];
+            //         Console.WriteLine($"Binding list got a price of {price}");
+            //     }
+            // };
+            // market.AddPrice(123);
+
+            // TODO:State
+
+            // Handmade state machine
+
+            // var state = State1.OffHook;
+            // while (true)
+            // {
+            //     Console.WriteLine($"The phone is currenty {state}");
+            //     Console.WriteLine("Select a trigger:");
+            //
+            //     for (var i = 0; i < rules[state].Count; i++)
+            //     {
+            //         var (t, _) = rules[state][i];
+            //         Console.WriteLine($"{i}. {t}");
+            //     }
+            //
+            //     int input = int.Parse(Console.ReadLine());
+            //     var (_, s) = rules[state][input];
+            //     state = s;
+            // }
+            
+            // Switch-based state machine
+
+            // string code = "1234";
+            // var state = State2.Locked;
+            // var entry = new StringBuilder();
+            //
+            // while (true)
+            // {
+            //     switch (state)
+            //     {
+            //         case State2.Locked:
+            //             entry.Append(Console.ReadKey().KeyChar);
+            //
+            //             if (entry.ToString() == code)
+            //             {
+            //                 state = State2.Unlocked;
+            //                 break;
+            //             }
+            //
+            //             if (!code.StartsWith(entry.ToString()))
+            //             {
+            //                 state = State2.Failed;
+            //                 // goto case State2.Failed;
+            //             }
+            //             
+            //             break;
+            //         case State2.Failed:
+            //             Console.CursorLeft = 0;
+            //             Console.WriteLine("FAILED");
+            //             entry.Clear();
+            //             state = State2.Locked;
+            //             break;
+            //         case State2.Unlocked:
+            //             Console.CursorLeft = 0;
+            //             Console.WriteLine("UNLOCKED");
+            //             return;
+            //         
+            //     }
+            // }
+            
+            // State machine with stateless
+
+            // var machine = new StateMachine<Health, Activity>(Health.NonReproductive);
+            // machine.Configure(Health.NonReproductive)
+            //     .Permit(Activity.ReachPuberty, Health.Reproductive);
+
+            // Implementation
+            
+            // The client code
+            var context = new Context(new ConcreteStateA());
+            context.Request1();
+            context.Request2();
 
             Console.ReadKey();
 
+
         }
+        
+        // private static Dictionary<State1, List<(Trigger, State1)>> rules = new Dictionary<State1, List<(Trigger, State1)>>
+        // {
+        //     [State1.OffHook] = new List<(Trigger, State1)>
+        //     {
+        //         (Trigger.CallDialed, State1.Connecting)
+        //     },
+        //     [State1.Connecting] = new List<(Trigger, State1)>
+        //     {
+        //         (Trigger.HungUp, State1.OffHook),
+        //         (Trigger.CallConnected, State1.Connected)
+        //     },
+        //     [State1.Connected] = new List<(Trigger, State1)>
+        //     {
+        //         (Trigger.LeftMessage, State1.OffHook),
+        //         (Trigger.HungUp, State1.OffHook),
+        //         (Trigger.PlacedOnHold, State1.OnHold)
+        //     },
+        //     [State1.OnHold] = new List<(Trigger, State1)>
+        //     {
+        //         (Trigger.TakenOffHold, State1.Connected),
+        //         (Trigger.HungUp, State1.OffHook)
+        //     }
+        // };
 
         // private static void FireGC()
         // {

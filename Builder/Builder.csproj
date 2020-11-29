@@ -24,10 +24,12 @@
       <ProjectReference Include="..\Prototype\Prototype.csproj" />
       <ProjectReference Include="..\Proxy\Proxy.csproj" />
       <ProjectReference Include="..\Singleton\Singleton.csproj" />
+      <ProjectReference Include="..\State\State.csproj" />
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="MediatR" Version="7.0.0" />
+      <PackageReference Include="stateless-4.0" Version="2.3.1.1" />
     </ItemGroup>
 
 </Project>
