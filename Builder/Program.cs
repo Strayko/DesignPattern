@@ -1,7 +1,9 @@
 ﻿
 
 using System;
+using System.Collections.Generic;
 using Strategy.DynamicStrategy;
+using Strategy.EqualityAndComparisonStrategies;
 
 namespace Builder
 {
@@ -778,15 +780,22 @@ namespace Builder
             
             // Dynamic Strategy
             
-            var tp = new TextProcessor();
-            tp.SetOutputFormat(OutputFormat.Markdown);
-            tp.AppendList(new[] {"foo", "bar", "baz"});
-            Console.WriteLine(tp);
-
-            tp.Clear();
-            tp.SetOutputFormat(OutputFormat.Html);
-            tp.AppendList(new[] {"foo", "bar", "baz"});
-            Console.WriteLine(tp);
+            // var tp = new TextProcessor();
+            // tp.SetOutputFormat(OutputFormat.Markdown);
+            // tp.AppendList(new[] {"foo", "bar", "baz"});
+            // Console.WriteLine(tp);
+            //
+            // tp.Clear();
+            // tp.SetOutputFormat(OutputFormat.Html);
+            // tp.AppendList(new[] {"foo", "bar", "baz"});
+            // Console.WriteLine(tp);
+            
+            // Equality and comparison strategies
+            
+            var people = new List<Person>();
+            people.Sort(); // default
+            // people.Sort((x,y) => x.Name.CompareTo(y.Name));
+            people.Sort(Person.NameComparer);
 
 
         }
