@@ -1,6 +1,7 @@
 ﻿
+
 using System;
-using State.Implementation;
+using Strategy.DynamicStrategy;
 
 namespace Builder
 {
@@ -769,11 +770,23 @@ namespace Builder
             // Implementation
             
             // The client code
-            var context = new Context(new ConcreteStateA());
-            context.Request1();
-            context.Request2();
+            // var context = new Context(new ConcreteStateA());
+            // context.Request1();
+            // context.Request2();
+           
+            // TODO:Strategy
+            
+            // Dynamic Strategy
+            
+            var tp = new TextProcessor();
+            tp.SetOutputFormat(OutputFormat.Markdown);
+            tp.AppendList(new[] {"foo", "bar", "baz"});
+            Console.WriteLine(tp);
 
-            Console.ReadKey();
+            tp.Clear();
+            tp.SetOutputFormat(OutputFormat.Html);
+            tp.AppendList(new[] {"foo", "bar", "baz"});
+            Console.WriteLine(tp);
 
 
         }
