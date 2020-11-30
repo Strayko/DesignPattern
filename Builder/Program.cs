@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using Strategy.DynamicStrategy;
 using Strategy.EqualityAndComparisonStrategies;
+using Strategy.Implementation;
 
 namespace Builder
 {
@@ -792,10 +793,29 @@ namespace Builder
             
             // Equality and comparison strategies
             
-            var people = new List<Person>();
-            people.Sort(); // default
-            // people.Sort((x,y) => x.Name.CompareTo(y.Name));
-            people.Sort(Person.NameComparer);
+            // var people = new List<Person>();
+            // people.Sort(); // default
+            // // people.Sort((x,y) => x.Name.CompareTo(y.Name));
+            // people.Sort(Person.NameComparer);
+            
+            // Implementation
+            
+            // The client code picks a concrete strategy and passes it to the
+            // context. The client should be aware of the differences between
+            // strategies in order to make the right choice.
+            // var context = new Context();
+            //
+            // Console.WriteLine("Client: Strategy is set to normal sorting.");
+            // context.SetStrategy(new ConcreteStrategyA());
+            // context.DoSomeBusinessLogic();
+            //
+            // Console.WriteLine();
+            //
+            // Console.WriteLine("Client: Strategy is set to reverse sorting.");
+            // context.SetStrategy(new ConcreteStrategyB());
+            // context.DoSomeBusinessLogic();
+
+            Console.ReadKey();
 
 
         }
