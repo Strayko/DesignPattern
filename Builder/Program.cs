@@ -1,7 +1,8 @@
 ﻿using System;
-using TemplateMethod.Example;
-using TemplateMethod.FunctionalTemplateMethod;
-using TemplateMethod.Implementation;
+using System.Collections.Generic;
+using System.Text;
+using Interpreter.HandmadeInterpreter;
+using Visitor.ReflectionBasedPrinting;
 
 namespace Builder
 {
@@ -850,11 +851,25 @@ namespace Builder
             
             // Implementation
 
-            Console.WriteLine("Same client code can work with different subclasses:");
-            Client.ClientCode(new ConcreteClass1());
-            Console.WriteLine("\n");
-            Console.WriteLine("Same client code can work with different subclasses:");
-            Client.ClientCode(new ConcreteClass2());
+            // Console.WriteLine("Same client code can work with different subclasses:");
+            // Client.ClientCode(new ConcreteClass1());
+            // Console.WriteLine("\n");
+            // Console.WriteLine("Same client code can work with different subclasses:");
+            // Client.ClientCode(new ConcreteClass2());
+            
+            // TODO:Visitor
+            
+            // Reflection Based Printing
+            
+            var e = new AdditionExpression(
+                new DoubleExpression(1), 
+                new AdditionExpression(
+                    new DoubleExpression(2), 
+                    new DoubleExpression(3)
+                    ));
+            var sb = new StringBuilder();
+            ExpressionPrinter.Print(e, sb);
+            Console.WriteLine(sb);
             
             
 
@@ -868,7 +883,7 @@ namespace Builder
 
 
         }
-        
+
         // private static Dictionary<State1, List<(Trigger, State1)>> rules = new Dictionary<State1, List<(Trigger, State1)>>
         // {
         //     [State1.OffHook] = new List<(Trigger, State1)>

@@ -27,6 +27,7 @@
       <ProjectReference Include="..\State\State.csproj" />
       <ProjectReference Include="..\Strategy\Strategy.csproj" />
       <ProjectReference Include="..\TemplateMethod\TemplateMethod.csproj" />
+      <ProjectReference Include="..\Visitor\Visitor.csproj" />
     </ItemGroup>
 
     <ItemGroup>
