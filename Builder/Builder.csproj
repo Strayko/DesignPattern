@@ -26,6 +26,7 @@
       <ProjectReference Include="..\Singleton\Singleton.csproj" />
       <ProjectReference Include="..\State\State.csproj" />
       <ProjectReference Include="..\Strategy\Strategy.csproj" />
+      <ProjectReference Include="..\TemplateMethod\TemplateMethod.csproj" />
     </ItemGroup>
 
     <ItemGroup>

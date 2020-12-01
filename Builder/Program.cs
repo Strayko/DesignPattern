@@ -1,10 +1,7 @@
-﻿
-
-using System;
-using System.Collections.Generic;
-using Strategy.DynamicStrategy;
-using Strategy.EqualityAndComparisonStrategies;
-using Strategy.Implementation;
+﻿using System;
+using TemplateMethod.Example;
+using TemplateMethod.FunctionalTemplateMethod;
+using TemplateMethod.Implementation;
 
 namespace Builder
 {
@@ -814,8 +811,60 @@ namespace Builder
             // Console.WriteLine("Client: Strategy is set to reverse sorting.");
             // context.SetStrategy(new ConcreteStrategyB());
             // context.DoSomeBusinessLogic();
+            
+            // TODO:TemplateMethod
+            
+            // Example
+
+            // var chess = new Chess();
+            // chess.Run();
+            
+            // Functional Template Method
+
+            // var numberOfPlayers = 2;
+            // int currentPlayer = 0;
+            // int turn = 1, maxTurns = 10;
+            //
+            // void Start()
+            // {
+            //     Console.WriteLine($"Starting a game of chess with {numberOfPlayers} players.");
+            // }
+            //
+            // bool HaveWinner()
+            // {
+            //     return turn == maxTurns;
+            // }
+            //
+            // void TakeTurn()
+            // {
+            //     Console.WriteLine($"Turn {turn++} taken by player {currentPlayer}.");
+            //     currentPlayer = (currentPlayer + 1) % numberOfPlayers;
+            // }
+            //
+            // int WinningPlayer()
+            // {
+            //     return currentPlayer;
+            // }
+            //
+            // GameTemplate.Run(Start, TakeTurn, HaveWinner, WinningPlayer);
+            
+            // Implementation
+
+            Console.WriteLine("Same client code can work with different subclasses:");
+            Client.ClientCode(new ConcreteClass1());
+            Console.WriteLine("\n");
+            Console.WriteLine("Same client code can work with different subclasses:");
+            Client.ClientCode(new ConcreteClass2());
+            
+            
+
+
 
             Console.ReadKey();
+            
+            
+            
+            
 
 
         }
