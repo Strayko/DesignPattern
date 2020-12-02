@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using Interpreter.HandmadeInterpreter;
-using Visitor.AcyclicVisitor;
+using Visitor.Implementation;
 
 namespace Builder
 {
@@ -874,15 +872,34 @@ namespace Builder
 
             // Acyclic Visitor
             
-            var e = new AdditionExpression(
-                new DoubleExpression(1), 
-                new AdditionExpression(
-                    new DoubleExpression(2), 
-                    new DoubleExpression(3)
-                    ));
-            var ep = new ExpressionPrinter();
-            ep.Visit(e);
-            Console.WriteLine(ep.ToString());
+            // var e = new AdditionExpression(
+            //     new DoubleExpression(1), 
+            //     new AdditionExpression(
+            //         new DoubleExpression(2), 
+            //         new DoubleExpression(3)
+            //         ));
+            // var ep = new ExpressionPrinter();
+            // ep.Visit(e);
+            // Console.WriteLine(ep.ToString());
+            
+            // Implementation
+            
+            List<IComponent> components = new List<IComponent>
+            {
+                new ConcreteComponentA(),
+                new ConcreteComponentB()
+            };
+
+            Console.WriteLine("The client code works with all visitors via the base Visitor interface:");
+            var visitor1 = new ConcreteVisitor1();
+            Client.ClientCode(components, visitor1);
+
+            Console.WriteLine();
+
+            Console.WriteLine("It allows the same client code to work with different types of visitors:");
+            var visitor2 = new ConcreteVisitor2();
+            Client.ClientCode(components, visitor2);
+            
             
 
 
