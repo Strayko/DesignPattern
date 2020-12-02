@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Interpreter.HandmadeInterpreter;
-using Visitor.ReflectionBasedPrinting;
+using Visitor.ClassicVisitorDoubleDispatch;
 
 namespace Builder
 {
@@ -867,11 +867,13 @@ namespace Builder
                     new DoubleExpression(2), 
                     new DoubleExpression(3)
                     ));
-            var sb = new StringBuilder();
-            ExpressionPrinter.Print(e, sb);
-            Console.WriteLine(sb);
-            
-            
+            var ep = new ExpressionPrinter();
+            ep.Visit(e);
+            Console.WriteLine(ep);
+            var calc = new ExpressionCalculator();
+            calc.Visit(e);
+            Console.WriteLine($"{ep} = {calc.Result}");
+
 
 
 

@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Visitor.ReflectionBasedPrinting
+namespace Visitor.ClassicVisitorDoubleDispatch
 {
     public class AdditionExpression : Expression
     {
@@ -11,6 +11,11 @@ namespace Visitor.ReflectionBasedPrinting
         {
             this.Left = left;
             this.Right = right;
+        }
+
+        public override void Accept(IExpressionVisitor visitor)
+        {
+            visitor.Visit(this);
         }
     }
 }

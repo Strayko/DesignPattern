@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Visitor.ReflectionBasedPrinting
+namespace Visitor.ClassicVisitorDoubleDispatch
 {
     public class DoubleExpression : Expression
     {
@@ -9,6 +9,12 @@ namespace Visitor.ReflectionBasedPrinting
         public DoubleExpression(double value)
         {
             this.Value = value;
+        }
+
+        public override void Accept(IExpressionVisitor visitor)
+        {
+            // double dispatch
+            visitor.Visit(this);
         }
     }
 }
