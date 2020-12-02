@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Visitor.ClassicVisitorDoubleDispatch
+namespace Visitor.DynamicVisitorViaTheDLR
 {
     public class DoubleExpression : Expression
     {
@@ -9,12 +9,6 @@ namespace Visitor.ClassicVisitorDoubleDispatch
         public DoubleExpression(double value)
         {
             this.Value = value;
-        }
-
-        public override void Accept(IExpressionVisitor visitor)
-        {
-            // double dispatch
-            visitor.Visit(this);
         }
     }
 }

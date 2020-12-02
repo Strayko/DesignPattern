@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Interpreter.HandmadeInterpreter;
-using Visitor.ClassicVisitorDoubleDispatch;
+using Visitor.AcyclicVisitor;
 
 namespace Builder
 {
@@ -859,7 +859,20 @@ namespace Builder
             
             // TODO:Visitor
             
-            // Reflection Based Printing
+            // Dynamic Visitor Via The DLR
+            
+            // Expression e = new AdditionExpression(
+            //     new DoubleExpression(1), 
+            //     new AdditionExpression(
+            //         new DoubleExpression(2), 
+            //         new DoubleExpression(3)
+            //         ));
+            // var ep = new ExpressionPrinter();
+            // var sb = new StringBuilder();
+            // ep.Print((dynamic)e, sb);
+            // Console.WriteLine(sb);
+
+            // Acyclic Visitor
             
             var e = new AdditionExpression(
                 new DoubleExpression(1), 
@@ -869,11 +882,8 @@ namespace Builder
                     ));
             var ep = new ExpressionPrinter();
             ep.Visit(e);
-            Console.WriteLine(ep);
-            var calc = new ExpressionCalculator();
-            calc.Visit(e);
-            Console.WriteLine($"{ep} = {calc.Result}");
-
+            Console.WriteLine(ep.ToString());
+            
 
 
 

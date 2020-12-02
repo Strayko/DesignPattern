@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Visitor.ClassicVisitorDoubleDispatch
+namespace Visitor.DynamicVisitorViaTheDLR
 {
     public class AdditionExpression : Expression
     {
@@ -11,11 +11,6 @@ namespace Visitor.ClassicVisitorDoubleDispatch
         {
             this.Left = left;
             this.Right = right;
-        }
-
-        public override void Accept(IExpressionVisitor visitor)
-        {
-            visitor.Visit(this);
         }
     }
 }
