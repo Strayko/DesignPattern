@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Numerics;
+using Examples.ContinuationPassingStyle;
 
 namespace Builder
 {
@@ -898,7 +900,15 @@ namespace Builder
             // var visitor2 = new ConcreteVisitor2();
             // Client.ClientCode(components, visitor2);
             
+            // TODO:ContinuationPassingStyle
             
+            var solver = new QuadraticEquationSolver();
+            Tuple<Complex, Complex> solution;
+            var flag = solver.Start(1, 10, 16, out solution);
+            if (flag == WorkflowResult.Success)
+            {
+                
+            }
 
 
 
