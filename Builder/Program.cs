@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Numerics;
 using Examples.ContinuationPassingStyle;
+using Examples.CQRSAndEventSourcing;
 
 namespace Builder
 {
@@ -902,14 +903,35 @@ namespace Builder
             
             // TODO:ContinuationPassingStyle
             
-            var solver = new QuadraticEquationSolver();
-            Tuple<Complex, Complex> solution;
-            var flag = solver.Start(1, 10, 16, out solution);
-            if (flag == WorkflowResult.Success)
-            {
-                
-            }
+            // var solver = new QuadraticEquationSolver();
+            // Tuple<Complex, Complex> solution;
+            // var flag = solver.Start(1, 10, 16, out solution);
+            // if (flag == WorkflowResult.Success)
+            // {
+            //     
+            // }
+            
+            // TODO:CQRSAndEventSourcing
+            
+            var eb = new EventBroker();
+            var p = new Person(eb);
+            eb.Command(new ChangeAgeCommand(p, 123));
 
+            foreach (var e in eb.AllEvents)
+            {
+                Console.WriteLine(e);
+            }
+            
+            int age;
+            age = eb.Query<int>(new AgeQuery {Target = p});
+            Console.WriteLine(age);
+
+            eb.UndoLast();
+
+            foreach (var e in eb.AllEvents)
+            {
+                Console.WriteLine(e);
+            }
 
 
             Console.ReadKey();
